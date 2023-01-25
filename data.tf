@@ -3,7 +3,7 @@ data "aws_ami" "amz-linux-2" {
   owners      = ["amazon"]
 
   filter {
-    name = "image-id"
-    values  = ["ami-0a606d8395a538502"]
+    name   = "image-id"
+    values = ["ami-0a606d8395a538502"]
   }
 }

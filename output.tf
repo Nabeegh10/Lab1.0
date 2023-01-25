@@ -18,6 +18,10 @@ output "subnet-public" {
 }
 
 output "subnet-private" {
-    description = "All subnet ids that created in private"
-  value = ["${aws_subnet.private-subnet.*.id}"]
+  description = "All subnet ids that created in private"
+  value       = ["${aws_subnet.private-subnet.*.id}"]
+}
+
+output "IAM" {
+  value = aws_iam_user.sham.name
 }
