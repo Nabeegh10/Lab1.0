@@ -40,7 +40,7 @@ resource "aws_security_group" "private-security-group" {
     from_port   = 22
     to_port     = 22
     protocol    = "tcp"
-    cidr_blocks = [var.public_subnet[0]]
+    cidr_blocks = [var.private_subnet[0]]
   }
 
   egress {
@@ -74,5 +74,14 @@ resource "aws_security_group" "public-security-group" {
   }
   tags = {
     Name = "Public SG"
+  }
+}
+
+resource "aws_db_subnet_group" "db_subnet_group1" {
+  name       = "main-db-subnet"
+  subnet_ids = [aws_subnet.private-subnet.id]
+
+  tags = {
+    Name = "My DB subnet group"
   }
 }
