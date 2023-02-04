@@ -77,9 +77,9 @@ resource "aws_security_group" "public-security-group" {
   }
 }
 
-resource "aws_db_subnet_group" "db_subnet_group1" {
+ resource "aws_db_subnet_group" "db_subnet_group1" {
   name       = "main-db-subnet"
-  subnet_ids = [aws_subnet.private-subnet.id]
+  subnet_ids = [aws_subnet.private-subnet[0].id,aws_subnet.private-subnet[1].id]
 
   tags = {
     Name = "My DB subnet group"

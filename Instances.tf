@@ -25,7 +25,7 @@
   }
 } */
 
-resource "aws_db_instance" "rds_Instance" {
+ resource "aws_db_instance" "rds_Instance" {
   allocated_storage      = 20
   max_allocated_storage  = 100
   storage_type           = "gp2"
@@ -38,5 +38,6 @@ resource "aws_db_instance" "rds_Instance" {
   vpc_security_group_ids = [aws_security_group.private-security-group.id]
   availability_zone = var.a_zone[0]
   db_subnet_group_name = aws_db_subnet_group.db_subnet_group1.id
+  skip_final_snapshot = true
 
-}
+} 
